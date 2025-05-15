@@ -25,7 +25,7 @@ const Hero = () => {
       className="relative"
     >
       {/* LEFT: Text */}
-      <div className="relative z-10 h-[100vh] flex xl:items-center items-start justify-center">
+      <div className="relative z-10 md:h-dvh h-[80vh] flex items-center justify-center">
         <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
           <div className="flex flex-col gap-7">
             <div className="flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none">
@@ -38,7 +38,7 @@ const Hero = () => {
                         key={index}
                         className="flex items-center md:gap-3 gap-1 pb-2"
                       >
-                        <div className="xl:size-12 md:size-10 size-9 md:p-1 rounded-full bg-white-50 text-black-200">
+                        <div className="xl:size-12 md:size-10 size-9 p-1 rounded-full bg-white-50 text-black-200">
                           {word.icon}
                         </div>
                         <span>{word.text}</span>
@@ -57,7 +57,7 @@ const Hero = () => {
             </p>
 
             <Button
-              text="See My Work"
+              text="my resume"
               className="md:w-80 md:h-16 w-60 h-12 relative z-20"
               id="counter"
             />
@@ -65,7 +65,7 @@ const Hero = () => {
         </header>
 
         {/* RIGHT: Visual */}
-        <div className="md:mr-20 opacity-80">
+        <div className="hidden xl:inline-block md:mr-20 opacity-80 max-w-sm">
           <img
             src="/hero.png"
             alt="hero"
