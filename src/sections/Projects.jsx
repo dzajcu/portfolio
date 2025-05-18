@@ -55,7 +55,6 @@ export default function Projects() {
       <TitleHeader
         title="Projects"
         sub="Here are some of my projects"
-        className="mb-40"
       />
       {projects.map((project, i) => {
         const targetScale = 1 - (projects.length - i) * 0.05;

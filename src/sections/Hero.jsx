@@ -2,8 +2,11 @@ import Button from "../components/Button";
 import { Lightbulb } from "../components/icons/Lightbulb";
 import { Speed } from "../components/icons/Speed";
 import { EmojiSmile } from "../components/icons/EmojiSmile";
-
+import { motion, useScroll, useTransform } from "framer-motion";
 const Hero = () => {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 100]);
+
   const words = [
     {
       text: "fast",
@@ -18,11 +21,10 @@ const Hero = () => {
       icon: <EmojiSmile />,
     },
   ];
-
   return (
     <section
       id="hero"
-      className="relative"
+      className="relative h-screen"
     >
       {/* LEFT: Text */}
       <div className="relative z-10 md:h-dvh h-[80vh] flex items-center justify-center">
@@ -65,12 +67,15 @@ const Hero = () => {
         </header>
 
         {/* RIGHT: Visual */}
-        <div className="hidden xl:inline-block md:mr-20 opacity-80 max-w-sm">
+        <motion.div
+          className="hidden xl:inline-block md:mr-20 opacity-80 max-w-sm"
+          style={{ y }}
+        >
           <img
             src="/hero.png"
             alt="hero"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

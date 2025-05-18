@@ -1,17 +1,20 @@
 import Hero from "./sections/Hero";
-import ParticlesBackground from "./components/ParticlesBackground";
+import ParallaxBackground from "./components/ParallaxBackground";
 import Navbar from "./sections/Navbar";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
+import { useLenis } from "./hooks/useLenis";
+
 const App = () => {
+  useLenis();
   return (
-    <>
-      <ParticlesBackground />
+    <div className="container mx-auto">
+      <ParallaxBackground />
       <Navbar />
       <Hero />
       <Projects />
       <Experience />
-    </>
+    </div>
   );
 };
 

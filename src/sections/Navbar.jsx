@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 
-//
 const Navbar = () => {
-  // track if the user has scrolled down the page
   const navLinks = [
-    { link: "#projects", name: "Projects" },
-    { link: "#skills", name: "Skills" },
-    { link: "#experience", name: "Experience" },
+    { link: "#about", name: "about" },
+    { link: "#projects", name: "projects" },
+    { link: "#skills", name: "skills" },
+    { link: "#experience", name: "experience" },
   ];
   const [scrolled, setScrolled] = useState(false);
 
@@ -23,8 +22,8 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed w-full left-1/2 py-5 px-5 md:px-20 -translate-x-1/2 z-[100] transition-all duration-300 ease-in-out ${
-        scrolled ? "top-0 bg-black" : "md:top-10 top-0 bg-transparent"
+      className={`container fixed w-full left-1/2 py-5 px-5 md:px-20 -translate-x-1/2 z-[100] transition-all duration-300 ease-in-out ${
+        scrolled ? "top-0 backdrop-blur" : "md:top-10 top-0 bg-transparent"
       }`}
     >
       <div className="mx-auto flex items-center justify-between">

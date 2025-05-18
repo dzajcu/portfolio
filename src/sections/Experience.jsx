@@ -11,7 +11,7 @@ const TimelineDiv = ({ wrapperRef }) => {
   });
 
   const rawHeight = useTransform(scrollYProgress, [0, 1], ["110%", "0%"]);
-  const rawTop = useTransform(scrollYProgress, [0, 1], ["-10%", "100%"]);
+  const rawTop = useTransform(scrollYProgress, [0, 1], ["-5%", "100%"]);
 
   const height = useSpring(rawHeight, {
     stiffness: 100,
@@ -26,7 +26,7 @@ const TimelineDiv = ({ wrapperRef }) => {
   return (
     <motion.div
       ref={ref}
-      className="timeline absolute z-30 w-14 md:w-28 bg-black top-0"
+      className="timeline absolute z-30 w-14 md:w-28 bg-black-100 top-0"
       style={{ height, top }}
     />
   );
@@ -98,7 +98,7 @@ const Experience = () => {
                 key={card.title}
                 className="flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between"
               >
-                <div className="xl:w-2/6">
+                <div className="xl:w-2/6 z-40">
                   <Card card={card}>
                     <div>
                       <img
@@ -111,7 +111,7 @@ const Experience = () => {
                 <div className="xl:w-4/6">
                   <div className="flex items-start">
                     <div
-                      className="absolute top-0 xl:left-[35.5vw] md:left-10 left-5 h-full flex justify-center"
+                      className="absolute top-0 xl:left-[40%] md:left-10 left-5 h-full flex justify-center"
                       ref={(el) => {
                         if (
                           el &&
