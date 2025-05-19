@@ -3,6 +3,7 @@ import ParallaxBackground from "./components/ParallaxBackground";
 import Navbar from "./sections/Navbar";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
+import Contant from "./sections/Contant";
 import { useLenis } from "./hooks/useLenis";
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <Hero />
       <Projects />
       <Experience />
+      <Contant />
     </div>
   );
 };
