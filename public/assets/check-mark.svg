@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Check Mark</title>    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M9.86,18 C9.58,18 9.31,17.89 9.11,17.68 L4.32,12.9 C3.9,12.48 3.9,11.81 4.32,11.4 C4.74,10.98 5.41,10.98 5.83,11.4 L9.86,15.42 L18.18,7.11 C18.6,6.7 19.27,6.7 19.69,7.11 C20.11,7.53 20.11,8.2 19.69,8.62 L10.62,17.68 C10.42,17.89 10.14,18 9.86,18 Z" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>

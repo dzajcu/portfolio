@@ -85,7 +85,7 @@ const Contact = () => {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="w-full flex flex-col gap-7 block text-white-50 mb-2"
+                className="w-full flex flex-col gap-7 text-white-50 mb-2"
               >
                 <div>
                   <label htmlFor="name">Your name</label>
@@ -114,7 +114,7 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message">Your Message</label>{" "}
+                  <label htmlFor="message">Your Message</label>
                   <textarea
                     className="w-full px-4 py-4 md:text-base text-sm placeholder:text-blue-50 bg-blue-100 rounded-md resize-none"
                     id="message"
