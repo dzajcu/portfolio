@@ -1,101 +1,115 @@
-"use client";
-import { useTransform, motion, useScroll } from "framer-motion";
-import { useRef } from "react";
-import Card from "../components/Card";
+import { useTransform, useScroll, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { useRef, useEffect } from "react";
 
 const ProjectCard = ({
   i,
   title,
   description,
   technologies,
-  src,
   url,
   progress,
   range,
   targetScale,
 }) => {
   const container = useRef(null);
+  const videoRef = useRef(null);
+  const isInView = useInView(container, { margin: "-10% 0px -10% 0px" });
 
-  const { scrollYProgress } = useScroll({
+  useScroll({
     target: container,
     offset: ["start end", "start start"],
   });
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
-  const cardData = {
-    review: description,
-  };
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isInView) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [isInView]);
+
   return (
     <div
       ref={container}
-      className="flex items-center justify-center sticky top-[20vh] mt-32"
+      className="flex items-center justify-center sticky top-[20vh] mt-32 will-change-transform"
     >
       <motion.div
         style={{
           scale,
           top: `calc(-5vh + ${i * 35}px)`,
         }}
-        className="relative flex flex-col h-auto w-[90%] max-w-[900px] origin-top"
+        className="relative flex flex-col h-auto w-fit origin-top "
       >
-        <Card card={cardData}>
-          <div className="flex flex-col h-full">
-            <h2 className="text-xl md:text-2xl font-bold mb-4 text-white-100">
-              {title}
-            </h2>
+        <div className="relative w-[800px] h-[375px] overflow-hidden rounded-lg group border-[0.5px] border-blue-500">
+          <video
+            ref={videoRef}
+            className="w-full h-full object-cover will-change-transform"
+            loop
+            muted
+            playsInline
+            autoPlay
+          >
+            <source
+              src="/Mapify.mp4"
+              type="video/mp4"
+            />
+          </video>
 
-            <div className="flex flex-col md:flex-row h-full gap-6 md:gap-8">
-              <div className="w-full md:w-[45%] flex flex-col justify-between order-2 md:order-1">
-                <div className="flex flex-wrap gap-2 mt-4">
+          <div
+            className="absolute inset-0 bg-black/70 opacity-0 transition-all duration-300 
+            group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 will-change-transform"
+          >
+            <div className="flex flex-col h-full p-6 justify-between">
+              <div className="translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+                  {title}
+                </h2>
+                <p className="text-white-100 text-base md:text-lg">
+                  {description}
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-4 translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
+                <div className="flex flex-wrap gap-2">
                   {technologies.map((tech, index) => (
                     <span
                       key={`tech_${index}`}
-                      className="bg-black-300 text-white-100 px-3 py-1 bg-black-200  rounded-full text-sm"
+                      className="bg-white/20 text-white px-3 py-1 rounded-full text-sm"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="mt-4 w-fit">
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm flex items-center gap-2 text-white-50 hover:text-white transition group p-2"
-                  >
-                    View Project
-                    <svg
-                      width="18"
-                      height="10"
-                      viewBox="0 0 22 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="transition group-hover:translate-x-2 duration-300 text-white-50 group-hover:text-white"
-                    >
-                      <path
-                        d="M21.5303 6.53033C21.8232 6.23744 21.8232 5.76256 21.5303 5.46967L16.7574 0.696699C16.4645 0.403806 15.9896 0.403806 15.6967 0.696699C15.4038 0.989592 15.4038 1.46447 15.6967 1.75736L19.9393 6L15.6967 10.2426C15.4038 10.5355 15.4038 11.0104 15.6967 11.3033C15.9896 11.5962 16.4645 11.5962 16.7574 11.3033L21.5303 6.53033ZM0 6.75L21 6.75V5.25L0 5.25L0 6.75Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div className="relative w-full md:w-[55%] h-[180px] md:h-[200px] overflow-hidden rounded-lg order-1 md:order-2">
-                <motion.div
-                  className="w-full h-full"
-                  style={{ scale: imageScale }}
+
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white opacity-75 hover:opacity-100 transition w-fit"
                 >
-                  <img
-                    src={`/${src}`}
-                    alt={title}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  View on GitHub
+                </a>
               </div>
             </div>
           </div>
-        </Card>
+        </div>
       </motion.div>
     </div>
   );

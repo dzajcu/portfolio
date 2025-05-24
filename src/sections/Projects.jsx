@@ -57,7 +57,7 @@ export default function Projects() {
         sub="Here are some of my projects"
       />
       {projects.map((project, i) => {
-        const targetScale = 1 - (projects.length - i) * 0.05;
+        const targetScale = 1 - (projects.length - i) * 0.08;
         return (
           <ProjectCard
             key={`p_${i}`}

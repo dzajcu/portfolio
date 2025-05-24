@@ -7,7 +7,7 @@ import Contant from "./sections/Contant";
 import { useLenis } from "./hooks/useLenis";
 
 const App = () => {
-  useLenis();
+  // useLenis();
   return (
     <div className="container mx-auto">
       <ParallaxBackground />
