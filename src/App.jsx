@@ -1,6 +1,7 @@
 import Hero from "./sections/Hero";
 import ParallaxBackground from "./components/ParallaxBackground";
 import Navbar from "./sections/Navbar";
+import About from "./sections/About";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Contant from "./sections/Contant";
@@ -13,6 +14,7 @@ const App = () => {
       <ParallaxBackground />
       <Navbar />
       <Hero />
+      <About />
       <Projects />
       <Experience />
       <Contant />

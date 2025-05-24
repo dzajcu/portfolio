@@ -49,7 +49,7 @@ export default function Projects() {
   return (
     <section
       ref={container}
-      className="relative px-5 md:px-10 md:mt-40 mt-20"
+      className="relative md:mt-40 mt-20 md:px-20 px-5"
       id="projects"
     >
       <TitleHeader
