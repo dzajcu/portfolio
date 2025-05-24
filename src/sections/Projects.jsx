@@ -49,12 +49,12 @@ export default function Projects() {
   return (
     <section
       ref={container}
-      className="relative"
+      className="relative px-5 md:px-10 md:mt-40 mt-20"
       id="projects"
     >
       <TitleHeader
-        title="Projects"
-        sub="Here are some of my projects"
+        title="Here are some of my projects."
+        sub="Projects"
       />
       {projects.map((project, i) => {
         const targetScale = 1 - (projects.length - i) * 0.08;

@@ -75,8 +75,8 @@ const Contact = () => {
     <section id="contact" className="flex-center px-5 md:px-10 md:mt-40 mt-20">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
-          title="Get in Touch – Let’s Connect"
-          sub="💬 Have questions or ideas? Let’s talk! 🚀"
+          title="Get in Touch – Let’s Connect."
+          sub="Contact Me"
         />
         <div className="grid-12-cols mt-16">
           {" "}
