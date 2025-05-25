@@ -33,19 +33,18 @@ const ProjectCard = ({
     }
   }, [isInView]);
 
-  return (
-    <div
+  return (    <div
       ref={container}
-      className="flex items-center justify-center sticky top-[20vh] mt-32 will-change-transform"
+      className="flex items-center justify-center sticky top-[20vh] mt-16 md:mt-32 will-change-transform"
     >
       <motion.div
         style={{
           scale,
-          top: `calc(-5vh + ${i * 35}px)`,
+          top: `calc(-5vh + ${i * 25}px)`,
         }}
-        className="relative flex flex-col h-auto w-fit origin-top "
+        className="relative flex flex-col h-auto w-fit origin-top"
       >
-        <div className="relative w-[800px] h-[375px] overflow-hidden rounded-lg group border-[0.5px] border-blue-500">
+        <div className="relative w-[90vw] sm:w-[95%] md:w-[700px] lg:w-[800px] h-[200px] sm:h-[250px] md:h-[375px] overflow-hidden rounded-lg group border-[0.5px] border-blue-500">
           <video
             ref={videoRef}
             className="w-full h-full object-cover will-change-transform"
@@ -58,28 +57,25 @@ const ProjectCard = ({
               src="/Mapify.mp4"
               type="video/mp4"
             />
-          </video>
-
-          <div
-            className="absolute inset-0 bg-black/70 opacity-0 transition-all duration-300 
-            group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 will-change-transform"
-          >
-            <div className="flex flex-col h-full p-6 justify-between">
-              <div className="translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+          </video>          <div
+            className="absolute inset-0 bg-black/70 md:opacity-0 opacity-80 transition-all duration-300 
+            md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 will-change-transform"
+          >            <div className="flex flex-col h-full p-3 sm:p-4 md:p-6 justify-between">
+              <div className="md:translate-y-4 transition-transform duration-300 md:group-hover:translate-y-0">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 text-white">
                   {title}
                 </h2>
-                <p className="text-white-100 text-base md:text-lg">
+                <p className="text-white-100 text-sm sm:text-base md:text-lg">
                   {description}
                 </p>
               </div>
 
-              <div className="flex flex-col gap-4 translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
-                <div className="flex flex-wrap gap-2">
+              <div className="flex flex-col gap-2 md:gap-4 md:translate-y-4 transition-transform duration-300 md:group-hover:translate-y-0">
+                <div className="flex flex-wrap gap-1 sm:gap-2">
                   {technologies.map((tech, index) => (
                     <span
                       key={`tech_${index}`}
-                      className="bg-white/20 text-white px-3 py-1 rounded-full text-sm"
+                      className="bg-white/20 text-white px-2 md:px-3 py-1 rounded-full text-xs sm:text-sm"
                     >
                       {tech}
                     </span>
