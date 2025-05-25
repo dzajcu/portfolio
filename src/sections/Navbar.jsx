@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
-const Navbar = () => {  const navLinks = [
+const Navbar = () => {
+  const navLinks = [
     { link: "#about", name: "about" },
+    { link: "#skills", name: "skills" },
     { link: "#projects", name: "projects" },
     { link: "#experience", name: "experience" },
   ];
@@ -17,23 +19,20 @@ const Navbar = () => {  const navLinks = [
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  // Function to handle smooth scrolling with navbar offset
   const handleSmoothScroll = (e, targetId) => {
     e.preventDefault();
-    
+
     const targetElement = document.querySelector(targetId);
     if (!targetElement) return;
 
-    // Calculate navbar height dynamically
-    const navbar = document.querySelector('header');
-    const navbarHeight = navbar ? navbar.offsetHeight + 20 : 100; // 20px extra padding
-    
+    const navbar = document.querySelector("header");
+    const navbarHeight = navbar ? navbar.offsetHeight + 20 : 100;
     const elementPosition = targetElement.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
 
     window.scrollTo({
-      top: Math.max(0, offsetPosition), // Ensure we don't scroll above the page
-      behavior: 'smooth'
+      top: Math.max(0, offsetPosition),
+      behavior: "smooth",
     });
   };
 
@@ -43,14 +42,15 @@ const Navbar = () => {  const navLinks = [
         scrolled ? "top-0 backdrop-blur" : "md:top-10 top-0 bg-transparent"
       }`}
     >
-      <div className="mx-auto flex items-center justify-between">        <a
+      <div className="mx-auto flex items-center justify-between">
+        {" "}
+        <a
           href="#hero"
-          onClick={(e) => handleSmoothScroll(e, '#hero')}
+          onClick={(e) => handleSmoothScroll(e, "#hero")}
           className="text-white-50 text-xl md:text-2xl font-semibold transition-transform duration-300 hover:scale-105"
         >
           Dawid Z.
         </a>
-
         <nav className="hidden lg:flex items-center">
           <ul className="flex space-x-8">
             {navLinks.map(({ link, name }) => (
@@ -58,7 +58,7 @@ const Navbar = () => {  const navLinks = [
                 key={name}
                 className="text-white-50 relative group"
               >
-                <a 
+                <a
                   href={link}
                   onClick={(e) => handleSmoothScroll(e, link)}
                 >
@@ -71,10 +71,9 @@ const Navbar = () => {  const navLinks = [
             ))}
           </ul>
         </nav>
-
         <a
           href="#contact"
-          onClick={(e) => handleSmoothScroll(e, '#contact')}
+          onClick={(e) => handleSmoothScroll(e, "#contact")}
           className="flex group"
         >
           <div className="px-5 py-2 rounded-lg bg-white-50 text-black group-hover:bg-black-50 transition-colors duration-300">

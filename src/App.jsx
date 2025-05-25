@@ -5,6 +5,7 @@ import About from "./sections/About";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Contant from "./sections/Contant";
+import Skills from "./sections/Skills";
 import { useLenis } from "./hooks/useLenis";
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <About />
+      <Skills />
       <Projects />
       <Experience />
       <Contant />

@@ -62,20 +62,23 @@ body {
 }
 
 @keyframes wordSlider {
-  0% {
+  0%,
+  20% {
     transform: translateY(0%);
   }
 
-  33% {
+  33%,
+  53% {
     transform: translateY(-33%);
   }
 
-  66% {
+  66%,
+  86% {
     transform: translateY(-66%);
   }
 
-  80% {
-    transform: translateY(-69%);
+  100% {
+    transform: translateY(0%);
   }
 }
 
