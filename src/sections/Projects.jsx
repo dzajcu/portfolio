@@ -46,11 +46,6 @@ export default function Projects() {
     offset: ["start start", "end end"],
   });
 
-  // Adjust the scroll configuration if needed
-  useEffect(() => {
-    // You can add responsive behavior here if needed
-    // For example, adjusting animations based on screen size
-  }, []);
   return (
     <section
       ref={container}
@@ -62,7 +57,6 @@ export default function Projects() {
         sub="Projects"
       />
       {projects.map((project, i) => {
-        // Adjust scaling for different screen sizes
         const targetScale = 1 - (projects.length - i) * 0.05;
         return (
           <ProjectCard

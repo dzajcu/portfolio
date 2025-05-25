@@ -33,7 +33,8 @@ const ProjectCard = ({
     }
   }, [isInView]);
 
-  return (    <div
+  return (
+    <div
       ref={container}
       className="flex items-center justify-center sticky top-[20vh] mt-16 md:mt-32 will-change-transform"
     >
@@ -57,10 +58,12 @@ const ProjectCard = ({
               src="/Mapify.mp4"
               type="video/mp4"
             />
-          </video>          <div
+          </video>
+          <div
             className="absolute inset-0 bg-black/70 md:opacity-0 opacity-80 transition-all duration-300 
             md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 will-change-transform"
-          >            <div className="flex flex-col h-full p-3 sm:p-4 md:p-6 justify-between">
+          >
+            <div className="flex flex-col h-full p-3 sm:p-4 md:p-6 justify-between">
               <div className="md:translate-y-4 transition-transform duration-300 md:group-hover:translate-y-0">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 text-white">
                   {title}
