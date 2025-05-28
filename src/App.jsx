@@ -6,10 +6,13 @@ import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Contant from "./sections/Contant";
 import Skills from "./sections/Skills";
-import { useLenis } from "./hooks/useLenis";
+import { useSmoothScroll } from "./hooks/useSmoothScroll";
 
 const App = () => {
-  // useLenis();
+  useSmoothScroll({
+    friction: 0.94,
+    threshold: 0.1,
+  });
   return (
     <div className="container mx-auto">
       <ParallaxBackground />
