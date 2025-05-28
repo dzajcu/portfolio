@@ -3,9 +3,23 @@ import { Lightbulb } from "../components/icons/Lightbulb";
 import { Speed } from "../components/icons/Speed";
 import { EmojiSmile } from "../components/icons/EmojiSmile";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
+
 const Hero = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 100]);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 100;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const words = [
     {
@@ -21,6 +35,21 @@ const Hero = () => {
       icon: <EmojiSmile />,
     },
   ];
+  const handleScrollToDiscover = () => {
+    const aboutSection = document.querySelector("#about");
+    if (!aboutSection) return;
+
+    const navbar = document.querySelector("header");
+    const navbarHeight = navbar ? navbar.offsetHeight + 20 : 100;
+    const elementPosition = aboutSection.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+    window.scrollTo({
+      top: Math.max(0, offsetPosition),
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section
       id="hero"
@@ -77,6 +106,41 @@ const Hero = () => {
           />
         </motion.div>
       </div>
+
+      <motion.div
+        className={`absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-2 cursor-pointer transition-opacity duration-500 z-10 ${
+          scrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        onClick={handleScrollToDiscover}
+      >
+        <p className="text-white-50 text-sm tracking-wider">
+          SCROLL TO DISCOVER
+        </p>
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{
+            repeat: Infinity,
+            duration: 1.5,
+            ease: "easeInOut",
+          }}
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.9 3C9.9 2.50294 9.49706 2.1 9 2.1C8.50294 2.1 8.1 2.50294 8.1 3L9.9 3ZM8.3636 16.6364C8.71508 16.9879 9.28492 16.9879 9.6364 16.6364L15.364 10.9088C15.7154 10.5574 15.7154 9.98751 15.364 9.63604C15.0125 9.28457 14.4426 9.28457 14.0912 9.63604L9 14.7272L3.90883 9.63604C3.55736 9.28457 2.98751 9.28457 2.63604 9.63604C2.28457 9.98751 2.28457 10.5574 2.63604 10.9088L8.3636 16.6364ZM8.1 3L8.1 16L9.9 16L9.9 3L8.1 3Z"
+              fill="white"
+            />
+          </svg>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

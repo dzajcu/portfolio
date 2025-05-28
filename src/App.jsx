@@ -10,7 +10,7 @@ import { useSmoothScroll } from "./hooks/useSmoothScroll";
 
 const App = () => {
   useSmoothScroll({
-    friction: 0.94,
+    friction: 0.95,
     threshold: 0.1,
   });
   return (

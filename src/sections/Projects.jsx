@@ -1,7 +1,7 @@
 "use client";
 import ProjectCard from "./ProjCard";
 import { useScroll } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import TitleHeader from "../components/TitleHeader";
 
 const projects = [
