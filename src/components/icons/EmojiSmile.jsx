@@ -20,7 +20,7 @@ export function EmojiSmile(props) {
           d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9"
         >
           <animate
-            begin="10.2s"
+            begin="0.5s"
             fill="freeze"
             attributeName="stroke-dashoffset"
             dur="0.6s"
@@ -35,7 +35,7 @@ export function EmojiSmile(props) {
           <animate
             fill="freeze"
             attributeName="stroke-dashoffset"
-            begin="10.7s"
+            begin="1.4s"
             dur="0.2s"
             values="2;0"
           ></animate>
@@ -48,7 +48,7 @@ export function EmojiSmile(props) {
           <animate
             fill="freeze"
             attributeName="stroke-dashoffset"
-            begin="11s"
+            begin="1.8s"
             dur="0.2s"
             values="2;0"
           ></animate>
@@ -61,7 +61,7 @@ export function EmojiSmile(props) {
           <animate
             fill="freeze"
             attributeName="stroke-dashoffset"
-            begin="11.3s"
+            begin="2.2s"
             dur="0.2s"
             values="12;0"
           ></animate>

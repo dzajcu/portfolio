@@ -6,6 +6,7 @@ const Navbar = () => {
     { link: "#skills", name: "skills" },
     { link: "#projects", name: "projects" },
     { link: "#experience", name: "experience" },
+    { link: "#contact", name: "contact" },
   ];
   const [scrolled, setScrolled] = useState(false);
 
@@ -42,14 +43,13 @@ const Navbar = () => {
         scrolled ? "top-0 backdrop-blur" : "md:top-10 top-0 bg-transparent"
       }`}
     >
-      <div className="mx-auto flex items-center justify-between">
-        {" "}
+      <div className="mx-auto flex items-center justify-between max-w-6xl">
         <a
           href="#hero"
           onClick={(e) => handleSmoothScroll(e, "#hero")}
           className="text-white-50 text-xl md:text-2xl font-semibold transition-transform duration-300 hover:scale-105"
         >
-          Dawid Z.
+          Dawid
         </a>
         <nav className="hidden lg:flex items-center">
           <ul className="flex space-x-8">
@@ -75,13 +75,7 @@ const Navbar = () => {
           href="#contact"
           onClick={(e) => handleSmoothScroll(e, "#contact")}
           className="flex group"
-        >
-          <div className="px-5 py-2 rounded-lg bg-white-50 text-black group-hover:bg-black-50 transition-colors duration-300">
-            <span className="group-hover:text-white transition-colors duration-300">
-              Contact me
-            </span>
-          </div>
-        </a>
+        ></a>
       </div>
     </header>
   );

@@ -8,19 +8,16 @@ import { useState, useEffect } from "react";
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 700], [0, 150]);
+  const y = useTransform(scrollY, [0, 1000], [0, 300]);
   const [showScrollDown, setShowScrollDown] = useState(true);
 
-  // Efekt obsługujący znikanie przycisku "Scroll Down" przy przewijaniu
   useEffect(() => {
     const handleScroll = () => {
-      // Ukryj przycisk, gdy przewinięcie jest większe niż 100px
       const shouldShow = window.scrollY < 100;
       setShowScrollDown(shouldShow);
     };
 
     window.addEventListener("scroll", handleScroll);
-    // Sprawdź stan początkowy
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -28,16 +25,16 @@ const Hero = () => {
 
   const words = [
     {
-      text: "fast",
-      icon: <Speed />,
+      text: "Dawid",
+      icon: <EmojiSmile />,
     },
     {
       text: "creative",
       icon: <Lightbulb />,
     },
     {
-      text: "user-friendly",
-      icon: <EmojiSmile />,
+      text: "efficient",
+      icon: <Speed />,
     },
   ];
   const handleScrollToDiscover = () => {
@@ -60,41 +57,42 @@ const Hero = () => {
       id="hero"
       className="relative h-screen"
     >
-      {/* LEFT: Text */}
       <div className="relative z-10 md:h-dvh h-[80vh] flex items-center justify-center">
-        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
+        <header className="flex flex-col max-w-3xl md:px-20 px-5 max-md:mt-60">
           <div className="flex flex-col gap-7">
-            <div className="flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none">
+            <div className="flex flex-col justify-center md:text-[60px] text-[30px]  relative z-10 pointer-events-none">
               <h1>
-                I build{" "}
-                <span className="absolute pt-0 px-2 md:px-5 py-[30px] h-[48px] md:h-[78px] md:translate-y-1 translate-y-0 overflow-hidden inline-block flex-col transition ease-[cubic-bezier(0.71, 0.03, 0.34, 1)]">
+                I'm
+                <span className="absolute pt-0 px-2 md:px-5 py-[30px] h-[48px] md:h-[78px] overflow-hidden inline-block flex-col transition ease-[cubic-bezier(0.71, 0.03, 0.34, 1)]">
                   <span className="flex flex-col wrapper">
                     {words.map((word, index) => (
                       <span
                         key={index}
-                        className="flex items-center md:gap-3 gap-1 pb-2"
+                        className="flex items-center md:gap-3 gap-1 pb-2 "
                       >
-                        <div className="xl:size-12 md:size-10 size-9 p-1 rounded-full bg-white-50 text-black-200">
+                        <div className="xl:size-12 md:size-10 size-9 p-1 rounded-full bg-white-50/10 text-white-200 ">
                           {word.icon}
                         </div>
-                        <span>{word.text}</span>
+                        <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                          {word.text}
+                        </span>
                       </span>
                     ))}
                   </span>
                 </span>
               </h1>
-              <h1>things on the Web .</h1>
+              <h1 className="font-thin">
+                — making the web <br />a bit better...
+              </h1>
             </div>
 
             <p className="text-white-50 md:text-xl relative z-20 pointer-events-none font-thin">
-              Hi, I'm Dawid, a passionate software engineer with a knack for
-              crafting innovative solutions. I specialize in web development,
-              creating seamless user experiences.
+              ...and fueled by coffee and code.
             </p>
 
             <Button
-              text="my resume"
-              className="md:w-80 md:h-16 w-60 h-12 relative z-20"
+              text="Download CV"
+              className="md:w-68 md:h-16 w-60 h-12 relative z-20"
               id="counter"
             />
             <div className="mt-4 z-30 flex gap-6 items-center">
@@ -104,14 +102,14 @@ const Hero = () => {
           </div>
         </header>
         <motion.div
-          className="hidden xl:inline-block md:mr-20 opacity-80 max-w-sm"
+          className="absolute top-[50%] md:top-[50%] left-30 md:left-[50%] translate-y-[-50%] opacity-50 max-w-xs md:max-w-xl"
           style={{ y }}
         >
           <img
-            src="/hero.png"
+            src="/hero2.png"
             alt="hero"
           />
-        </motion.div>{" "}
+        </motion.div>
       </div>
       <div
         onClick={handleScrollToDiscover}

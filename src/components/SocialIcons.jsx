@@ -7,12 +7,12 @@ const SocialIcons = ({ column = false, iconSize = "6", className = "" }) => {
   const containerClass = `flex ${
     column ? "flex-col" : "flex-row"
   } gap-6 items-center ${className}`;
-  const iconClass = `social-icon-link hover:text-white-50 transition-colors duration-300 text-blue-50 size-${iconSize}`;
+  const iconClass = `social-icon-link hover:text-white-50 transition-colors duration-300 text-white-50/60 size-${iconSize}`;
 
   return (
     <div className={containerClass}>
       <a
-        href="www.facebook.com/dzajcu/"
+        href="https://facebook.com/dzajcu/"
         target="_blank"
         className={iconClass}
       >

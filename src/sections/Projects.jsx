@@ -49,7 +49,7 @@ export default function Projects() {
   return (
     <section
       ref={container}
-      className="relative mt-10 sm:mt-16 md:mt-20 lg:mt-40 px-2 sm:px-4 md:px-8 lg:px-20"
+      className="relative mt-10 sm:mt-16 md:mt-20 lg:mt-40 px-5 sm:px-4 md:px-8 lg:px-20"
       id="projects"
     >
       <TitleHeader
@@ -64,7 +64,7 @@ export default function Projects() {
             i={i}
             {...project}
             progress={scrollYProgress}
-            range={[i * 0.25, 1]}
+            range={[i * 0.25, 1.5]}
             targetScale={targetScale}
           />
         );

@@ -216,7 +216,7 @@ const Skills = () => {
               staggerChildren: 0.5,
             }}
             viewport={{ once: true }}
-            className="grid items-center gap-1.5 md:grid-cols-2 xl:grid-cols-3"
+            className="grid items-center gap-2 md:gap-1.5 md:grid-cols-2 xl:grid-cols-3"
           >
             {/* Description Card */}
             <div className="flex flex-col py-6 xl:p-6">
@@ -244,9 +244,9 @@ const Skills = () => {
                   delay: index * 0.1,
                 }}
                 viewport={{ once: true }}
-                className="flex flex-col items-start rounded-lg bg-white/5 p-14 transition duration-300 hover:-translate-y-1 hover:bg-white/10 group"
+                className="flex flex-col items-start rounded-lg bg-white/5 p-6 md:p-14 transition duration-300 hover:-translate-y-1 hover:bg-white/10 group"
               >
-                <div className="mb-4 p-3">
+                <div className="mb-4 md:p-3 p-1">
                   <skill.icon />
                 </div>
 
