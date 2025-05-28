@@ -2,21 +2,26 @@ import Button from "../components/Button";
 import { Lightbulb } from "../components/icons/Lightbulb";
 import { Speed } from "../components/icons/Speed";
 import { EmojiSmile } from "../components/icons/EmojiSmile";
+import SocialIcons from "../components/SocialIcons";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const Hero = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 700], [0, 150]);
-  const [scrolled, setScrolled] = useState(false);
+  const [showScrollDown, setShowScrollDown] = useState(true);
 
+  // Efekt obsługujący znikanie przycisku "Scroll Down" przy przewijaniu
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 100;
-      setScrolled(isScrolled);
+      // Ukryj przycisk, gdy przewinięcie jest większe niż 100px
+      const shouldShow = window.scrollY < 100;
+      setShowScrollDown(shouldShow);
     };
 
     window.addEventListener("scroll", handleScroll);
+    // Sprawdź stan początkowy
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -81,7 +86,7 @@ const Hero = () => {
               <h1>things on the Web .</h1>
             </div>
 
-            <p className="text-white-50 md:text-xl relative z-20 pointer-events-none">
+            <p className="text-white-50 md:text-xl relative z-20 pointer-events-none font-thin">
               Hi, I'm Dawid, a passionate software engineer with a knack for
               crafting innovative solutions. I specialize in web development,
               creating seamless user experiences.
@@ -92,10 +97,12 @@ const Hero = () => {
               className="md:w-80 md:h-16 w-60 h-12 relative z-20"
               id="counter"
             />
+            <div className="mt-4 z-30 flex gap-6 items-center">
+              <div className="relative w-40 md:w-32 h-px bg-gradient-to-r from-white-50/00 to-blue-50/80"></div>
+              <SocialIcons iconSize="4" />
+            </div>
           </div>
         </header>
-
-        {/* RIGHT: Visual */}
         <motion.div
           className="hidden xl:inline-block md:mr-20 opacity-80 max-w-sm"
           style={{ y }}
@@ -104,43 +111,34 @@ const Hero = () => {
             src="/hero.png"
             alt="hero"
           />
-        </motion.div>
+        </motion.div>{" "}
       </div>
-
-      <motion.div
-        className={`absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-2 cursor-pointer transition-opacity duration-500 z-10 ${
-          scrolled ? "opacity-0 pointer-events-none" : "opacity-100"
-        }`}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.8 }}
+      <div
         onClick={handleScrollToDiscover}
+        className={`absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer transition-opacity duration-300 ${
+          showScrollDown ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
       >
-        <p className="text-white-50 text-sm tracking-wider">
-          SCROLL TO DISCOVER
-        </p>
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{
-            repeat: Infinity,
-            duration: 1.5,
-            ease: "easeInOut",
-          }}
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9.9 3C9.9 2.50294 9.49706 2.1 9 2.1C8.50294 2.1 8.1 2.50294 8.1 3L9.9 3ZM8.3636 16.6364C8.71508 16.9879 9.28492 16.9879 9.6364 16.6364L15.364 10.9088C15.7154 10.5574 15.7154 9.98751 15.364 9.63604C15.0125 9.28457 14.4426 9.28457 14.0912 9.63604L9 14.7272L3.90883 9.63604C3.55736 9.28457 2.98751 9.28457 2.63604 9.63604C2.28457 9.98751 2.28457 10.5574 2.63604 10.9088L8.3636 16.6364ZM8.1 3L8.1 16L9.9 16L9.9 3L8.1 3Z"
-              fill="white"
-            />
-          </svg>
-        </motion.div>
-      </motion.div>
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-white-50/50 text-xs">Scroll Down</p>
+          <div className="w-8 h-8 rounded-full flex-center animate-bounce">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-4 h-4 text-white-50/50"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

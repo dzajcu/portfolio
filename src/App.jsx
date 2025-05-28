@@ -6,6 +6,7 @@ import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Contant from "./sections/Contant";
 import Skills from "./sections/Skills";
+import Footer from "./sections/Footer";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
 
 const App = () => {
@@ -14,16 +15,19 @@ const App = () => {
     threshold: 0.1,
   });
   return (
-    <div className="container mx-auto">
-      <ParallaxBackground />
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Contant />
-    </div>
+    <>
+      <div className="container mx-auto">
+        <ParallaxBackground />
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contant />
+        <Footer />
+      </div>
+    </>
   );
 };
 
