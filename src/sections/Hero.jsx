@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 100]);
+  const y = useTransform(scrollY, [0, 700], [0, 150]);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
