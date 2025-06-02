@@ -10,7 +10,7 @@ const projects = [
     description:
       "A responsive portfolio website built with React and Tailwind CSS, featuring interactive animations and a clean, modern design.",
     technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
-    src: "hero.png",
+    src: "./hero.png",
     url: "",
   },
   {
@@ -18,7 +18,14 @@ const projects = [
     description:
       "A mapping application that allows users to create and share custom maps with various markers and routes.",
     technologies: ["React", "ChakraUI", "MapTiler", "Node", "MongoDB", "Vite"],
-    src: "Mapify.mp4",
+    src: "./Mapify.mp4",
+    url: "",
+  },  {
+    title: "Memory Game",
+    description:
+      "A simple browser-based memory game built with HTML, Tailwind CSS, and vanilla JavaScript.",
+    technologies: ["HTML", "Tailwind", "JavaScript"],
+    src: "./Memory.mp4",
     url: "",
   },
   {
@@ -26,15 +33,7 @@ const projects = [
     description:
       "A simple browser-based memory game built with HTML, Tailwind CSS, and vanilla JavaScript.",
     technologies: ["HTML", "Tailwind", "JavaScript"],
-    src: "Memory.mp4",
-    url: "",
-  },
-  {
-    title: "Memory Game",
-    description:
-      "A simple browser-based memory game built with HTML, Tailwind CSS, and vanilla JavaScript.",
-    technologies: ["HTML", "Tailwind", "JavaScript"],
-    src: "Memory.mp4",
+    src: "./Memory.mp4",
     url: "",
   },
 ];

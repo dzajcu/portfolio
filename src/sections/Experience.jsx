@@ -37,7 +37,7 @@ const Experience = () => {
     {
       review:
         "These studies shaped my mindset as an engineer and taught me how to learn effectively.",
-      logoPath: "/student.png",
+      logoPath: "./student.png",
       title: "B.Sc. in Automation and Robotics",
       date: "2020 - 2024",
       responsibilities: [
@@ -46,10 +46,9 @@ const Experience = () => {
         "Developed teamwork and communication skills through group projects.",
       ],
     },
-    {
-      review:
+    {      review:
         "This program is helping me gain deeper insight into AI, cloud solutions, and research-oriented problem solving.",
-      logoPath: "/student.png",
+      logoPath: "./student.png",
       title: "M.Sc. in Automation and Information Systems",
       date: "2024 - Present",
       responsibilities: [
@@ -58,11 +57,10 @@ const Experience = () => {
         "Exploring advanced engineering topics.",
       ],
     },
-    {
-      work: true,
+    {      work: true,
       review:
         "This role has deepened my ability to troubleshoot under pressure and maintain critical systems with reliability and precision.",
-      logoPath: "/admin.png",
+      logoPath: "./admin.png",
       title: "IT Administrator",
       date: "2023 – present",
       responsibilities: [

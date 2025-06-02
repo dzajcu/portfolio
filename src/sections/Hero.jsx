@@ -100,13 +100,12 @@ const Hero = () => {
               <SocialIcons iconSize="4" />
             </div>
           </div>
-        </header>
-        <motion.div
+        </header>        <motion.div
           className="absolute top-[50%] md:top-[50%] left-30 md:left-[50%] translate-y-[-50%] opacity-50 max-w-xs md:max-w-xl"
           style={{ y }}
         >
           <img
-            src="/hero2.png"
+            src="./hero2.png"
             alt="hero"
           />
         </motion.div>

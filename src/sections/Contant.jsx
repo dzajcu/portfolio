@@ -134,10 +134,9 @@ const Contact = () => {
           </div>
 
           <div className="w-full lg:w-1/2 flex items-center">
-            <div className="relative w-full h-full">
-              <div className="relative overflow-hidden rounded-xl border border-white-50/20 h-full opacity-60">
+            <div className="relative w-full h-full">              <div className="relative overflow-hidden rounded-xl border border-white-50/20 h-full opacity-60">
                 <img
-                  src="/contact-image.png"
+                  src="./contact-image.png"
                   alt="Contact Me"
                   className="w-full h-full object-cover"
                 />
