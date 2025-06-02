@@ -36,41 +36,45 @@ const Experience = () => {
   const expCards = [
     {
       review:
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.",
-      imgPath: "/images/exp1.png",
-      logoPath: "/images/logo1.png",
-      title: "Frontend Developer",
-      date: "2025 - Present",
+        "These studies shaped my mindset as an engineer and taught me how to learn effectively.",
+      logoPath: "/student.png",
+      title: "B.Sc. in Automation and Robotics",
+      date: "2020 - 2024",
       responsibilities: [
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Improved analytical thinking and structured problem-solving approaches.",
+        "Learned how to research and apply technical knowledge in practice.",
+        "Developed teamwork and communication skills through group projects.",
       ],
     },
     {
       review:
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.",
-      imgPath: "/images/exp1.png",
-      logoPath: "/images/logo1.png",
-      title: "Frontend Developer",
-      date: "2025 - Present",
+        "This program is helping me gain deeper insight into AI, cloud solutions, and research-oriented problem solving.",
+      logoPath: "/student.png",
+      title: "M.Sc. in Automation and Information Systems",
+      date: "2024 - Present",
       responsibilities: [
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Exploring AI and machine learning concepts.",
+        "Running experiments and analyzing model results.",
+        "Exploring advanced engineering topics.",
       ],
     },
     {
+      work: true,
       review:
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.",
-      imgPath: "/images/exp1.png",
-      logoPath: "/images/logo1.png",
-      title: "Frontend Developer",
-      date: "2025 - Present",
+        "This role has deepened my ability to troubleshoot under pressure and maintain critical systems with reliability and precision.",
+      logoPath: "/admin.png",
+      title: "IT Administrator",
+      date: "2023 – present",
       responsibilities: [
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Managing Microsoft 365: Exchange, OneDrive, SharePoint.",
+        "Handling Azure AD: users, groups, MFA, policies.",
+        "Supporting users with hardware and software issues.",
+        "Maintaining network: switches, Wi-Fi, VPN.",
+        "Deploying devices with profiles and security settings.",
+        "Monitoring systems and ensuring backups.",
+        "Writing and updating internal IT documentation.",
+        "Contacting vendors and external support teams.",
+        "Automating tasks with scripts (e.g., PowerShell).",
       ],
     },
   ];
@@ -82,13 +86,10 @@ const Experience = () => {
   );
 
   return (
-    <section
-      id="experience"
-      className="flex-center md:mt-40 mt-20 xl:px-0"
-    >
+    <section id="experience" className="flex-center md:mt-40 mt-20 xl:px-0">
       <div className="w-full h-full md:px-20 px-5">
         <TitleHeader
-          title="Professional Work Experience."
+          title="Education & Work Experience."
           sub="My Timeline Overwiew"
         />
         <div className="mt-32 relative">
@@ -99,14 +100,7 @@ const Experience = () => {
                 className="flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between"
               >
                 <div className="xl:w-2/6 z-40">
-                  <Card card={card}>
-                    <div>
-                      <img
-                        src={card.imgPath}
-                        alt="exp-img"
-                      />
-                    </div>
-                  </Card>
+                  <Card card={card}></Card>
                 </div>
                 <div className="xl:w-4/6">
                   <div className="flex items-start">
@@ -131,27 +125,21 @@ const Experience = () => {
                       <div className="gradient-line w-1 h-full" />
                     </div>
                     <div className="flex xl:gap-20 md:gap-10 gap-5 relative z-20">
-                      <div className="md:size-20 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 border border-black-50 bg-black-100">
-                        <img
-                          src={card.logoPath}
-                          alt="logo"
-                        />
+                      <div className="md:size-20 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 bg-white-50/10">
+                        <img src={card.logoPath} alt="logo" />
                       </div>
                       <div>
                         <h1 className="font-semibold text-3xl">{card.title}</h1>
-                        <p className="my-5 text-white-50">
-                          🗓️&nbsp;{card.date}
+                        <p className="my-5 text-white-50 text-sm">
+                          {card.date}
                         </p>
-                        <p className="text-[#839CB5] italic">
-                          Responsibilities
+                        <p className="text-[#839CB5] italic text-sm">
+                          {`${card.work ? "Work" : "Education"} Experience`}
                         </p>
-                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
+                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-4 text-white-50">
                           {card.responsibilities.map(
                             (responsibility, index) => (
-                              <li
-                                key={index}
-                                className="text-lg"
-                              >
+                              <li key={index} className="text-sm md:text-base">
                                 {responsibility}
                               </li>
                             )

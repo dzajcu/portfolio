@@ -10,7 +10,7 @@ const Button = ({ text, className, type, isSuccess, isLoading, disabled }) => {
       <div className="px-2 py-3 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden group transition-colors duration-300">
         <div
           className={`absolute -right-10 origin-center top-1/2 -translate-y-1/2 
-        w-[120%] h-[120%] group-hover:size-10 group-hover:right-10
+        w-[120%] h-[120%] group-hover:size-10 md:group-hover:right-10 group-hover:right-6
         rounded-full ${
           isSuccess ? "bg-green-300" : "bg-white-50/80"
         } transition-all duration-500`}
@@ -19,7 +19,7 @@ const Button = ({ text, className, type, isSuccess, isLoading, disabled }) => {
           {text}
         </p>
         <div
-          className={`$ size-10 rounded-full absolute right-10 top-1/2 
+          className={`$ size-10 rounded-full absolute md:right-10 right-6 top-1/2 
         -translate-y-1/2 flex justify-center items-center overflow-hidden"`}
         >
           {isLoading ? (

@@ -11,6 +11,7 @@ const ProjectCard = ({
   progress,
   range,
   targetScale,
+  src,
 }) => {
   const container = useRef(null);
   const videoRef = useRef(null);
@@ -45,7 +46,7 @@ const ProjectCard = ({
         }}
         className="relative flex flex-col h-auto w-fit origin-top"
       >
-        <div className="relative w-[90vw] sm:w-[95%] md:w-[700px] lg:w-[800px] h-[200px] sm:h-[250px] md:h-[375px] overflow-hidden rounded-lg group border-[0.5px] border-blue-500">
+        <div className="relative w-[90vw] sm:w-[95%] md:w-[700px] lg:w-[800px] h-[200px] sm:h-[250px] md:h-[375px] overflow-hidden rounded-lg group border-[0.5px] border-white-50/30">
           <video
             ref={videoRef}
             className="w-full h-full object-cover will-change-transform"
@@ -54,10 +55,7 @@ const ProjectCard = ({
             playsInline
             autoPlay
           >
-            <source
-              src="/Mapify.mp4"
-              type="video/mp4"
-            />
+            <source src={src} type="video/mp4" />
           </video>
           <div
             className="absolute inset-0 bg-black/70 md:opacity-0 opacity-80 transition-all duration-300 

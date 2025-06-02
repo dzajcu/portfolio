@@ -18,7 +18,7 @@ const ParallaxBackground = () => {
   return (
     <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none">
       <div
-        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[50px]"
+        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[30px]"
         aria-hidden="true"
         style={{
           top: `-40px`,
@@ -36,7 +36,7 @@ const ParallaxBackground = () => {
         />
       </div>
       <div
-        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[50px]"
+        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[30px]"
         aria-hidden="true"
         style={{
           top: `calc(60vh - 80px)`,
@@ -54,7 +54,7 @@ const ParallaxBackground = () => {
         />
       </div>
       <div
-        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[50px]"
+        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[30px]"
         aria-hidden="true"
         style={{
           top: `calc(100vh - 100px)`,
@@ -72,7 +72,7 @@ const ParallaxBackground = () => {
         />
       </div>
       <div
-        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[50px]"
+        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[30px]"
         aria-hidden="true"
         style={{
           top: `calc(165vh - 150px)`,
@@ -90,7 +90,7 @@ const ParallaxBackground = () => {
         />
       </div>{" "}
       <div
-        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[50px]"
+        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[30px]"
         aria-hidden="true"
         style={{
           top: `calc(160vh - 150px)`,
@@ -108,7 +108,7 @@ const ParallaxBackground = () => {
         />
       </div>{" "}
       <div
-        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[50px]"
+        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[30px]"
         aria-hidden="true"
         style={{
           top: `calc(180vh - 100px)`,
@@ -127,7 +127,7 @@ const ParallaxBackground = () => {
       </div>
       {/* Dodatkowe elementy wielokątne, aby wypełnić całą długość strony */}
       <div
-        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[50px]"
+        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[30px]"
         aria-hidden="true"
         style={{
           top: `calc(250vh - 150px)`,
@@ -145,7 +145,7 @@ const ParallaxBackground = () => {
         />
       </div>
       <div
-        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[50px]"
+        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[30px]"
         aria-hidden="true"
         style={{
           top: `calc(250vh - 200px)`,
@@ -163,7 +163,7 @@ const ParallaxBackground = () => {
         />
       </div>
       <div
-        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[50px]"
+        className="absolute inset-x-0 transform-gpu overflow-hidden blur-[30px]"
         aria-hidden="true"
         style={{
           top: `calc(320vh - 150px)`,

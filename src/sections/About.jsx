@@ -11,8 +11,8 @@ const About = () => {
           title="My Description"
           sub="About Me"
         />
-        <div className="mt-16">
-          <p className="text-white-50 md:text-3xl text-2xl leading-relaxed font-thin">
+        <div className="mt-4">
+          <p className="text-white-50 md:text-3xl text-xl leading-relaxed font-thin">
             I am a final-semester master's student of IT automation systems at
             Wrocław University of Science and Technology. I am characterized by
             strong analytical skills and pay close attention to detail and

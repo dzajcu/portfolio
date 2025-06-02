@@ -72,19 +72,12 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="flex-center px-5 md:px-10 md:mt-40 mt-20"
-    >
-      <div className="w-full h-full md:px-10 px-5">
-        <TitleHeader
-          title="Get in Touch – Let’s Connect."
-          sub="Contact Me"
-        />
-        <div className="grid-12-cols mt-16">
-          {" "}
-          <div className="xl:col-span-5">
-            <div className="flex-center border bg-black-100 rounded-xl p-10">
+    <section id="contact" className="flex-center px-5 md:px-10 md:mt-40 mt-20">
+      <div className="w-full h-full md:px-10">
+        <TitleHeader title="Get in Touch – Let’s Connect." sub="Contact Me" />
+        <div className="grid-12-cols mt-16 flex flex-col lg:flex-row gap-8">
+          <div className="w-full lg:w-1/2">
+            <div className="flex-center border border-white-50/50 bg-black-100 rounded-xl p-4 lg:p-6 xl:p-10">
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
@@ -135,8 +128,31 @@ const Contact = () => {
                   type="submit"
                   isSuccess={buttonState.isSuccess}
                   isLoading={loading}
-                />
+                />{" "}
               </form>
+            </div>
+          </div>
+
+          <div className="w-full lg:w-1/2 flex items-center">
+            <div className="relative w-full h-full">
+              <div className="relative overflow-hidden rounded-xl border border-white-50/20 h-full opacity-60">
+                <img
+                  src="/contact-image.png"
+                  alt="Contact Me"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/80 to-transparent mix-blend-saturation"></div>
+              </div>
+              <div className="absolute bottom-6 right-6 bg-black-100 border border-white-50/30 rounded-xl p-4 shadow-lg max-w-[85%]">
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-lg font-medium text-white">
+                    Let's work together
+                  </h3>
+                  <p className="text-white-50 text-sm">
+                    I'm available for new projects and collaborations
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

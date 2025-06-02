@@ -169,7 +169,7 @@ const Skills = () => {
       title: "Frontend Development",
       description:
         "Building modern, responsive web applications with JavaScript, React, HTML5, and CSS3 (SCSS).",
-      technologies: ["JavaScript", "React", "HTML5", "CSS3/SCSS"],
+      technologies: ["JavaScript", "React", "HTML", "CSS", "Tailwind"],
     },
     {
       icon: ServerIcon,
@@ -220,14 +220,14 @@ const Skills = () => {
           >
             {/* Description Card */}
             <div className="flex flex-col py-6 xl:p-6">
-              <h2 className="text-4xl font-medium tracking-tight text-white">
+              <h2 className="text-4xl font-medium text-white">
                 My Technical Skills
                 <br />
                 <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent clash-grotesk tracking-normal">
                   & Expertise.
                 </span>
               </h2>
-              <p className="mt-2 tracking-tighter text-white-50">
+              <p className="mt-2 font-thin text-white-50">
                 Here are the technologies and tools I work with to create
                 exceptional digital experiences.
               </p>
@@ -244,7 +244,7 @@ const Skills = () => {
                   delay: index * 0.1,
                 }}
                 viewport={{ once: true }}
-                className="flex flex-col items-start rounded-lg bg-white/5 p-6 md:p-14 transition duration-300 hover:-translate-y-1 hover:bg-white/10 group"
+                className="flex flex-col items-start rounded-lg bg-white/5 p-6 md:p-6 transition duration-300 hover:-translate-y-1 hover:bg-white/10 group"
               >
                 <div className="mb-4 md:p-3 p-1">
                   <skill.icon />
@@ -254,7 +254,7 @@ const Skills = () => {
                   {skill.title}
                 </h3>
 
-                <p className="text-sm  text-white-50 mb-4 leading-relaxed">
+                <p className="text-sm  text-white-50 mb-4 leading-relaxed font-thin">
                   {skill.description}
                 </p>
 
