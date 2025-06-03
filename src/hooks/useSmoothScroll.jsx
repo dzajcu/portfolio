@@ -9,6 +9,18 @@ export const useSmoothScroll = (options = {}) => {
   useEffect(() => {
     const { friction = 0.94, threshold = 0.1 } = options;
 
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+    const isTouchDevice =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    if (isMobile || isTouchDevice) {
+      console.log("Mobile device detected - skipping smooth scroll");
+      return;
+    }
+
     const hardwareConcurrency = navigator.hardwareConcurrency || 4;
     const memory = navigator.deviceMemory || 4;
     const isLowPerformance = hardwareConcurrency < 4 || memory < 4;
@@ -30,13 +42,11 @@ export const useSmoothScroll = (options = {}) => {
     currentScroll.current = window.pageYOffset;
     targetScroll.current = window.pageYOffset;
 
-    // Funkcja do zatrzymania animacji
     const stopAnimation = () => {
       if (rafId.current) {
         cancelAnimationFrame(rafId.current);
       }
       isScrolling.current = false;
-      // Synchronizuj pozycję
       const currentPosition = window.pageYOffset;
       currentScroll.current = currentPosition;
       targetScroll.current = currentPosition;
@@ -176,13 +186,12 @@ export const useSmoothScroll = (options = {}) => {
 
     const handleTouchEnd = () => {
       isTouch = false;
-    }; // Synchronizuj na resize
+    };
     const handleResize = () => {
       currentScroll.current = window.pageYOffset;
       targetScroll.current = window.pageYOffset;
-    }; // Synchronizuj gdy scroll zmieni się z zewnątrz (np. navbar link)
+    };
     const handleScroll = () => {
-      // Tylko synchronizuj jeśli nie jesteśmy w trakcie naszej animacji
       if (!isScrolling.current) {
         const currentPosition = window.pageYOffset;
         currentScroll.current = currentPosition;
@@ -190,9 +199,7 @@ export const useSmoothScroll = (options = {}) => {
       }
     };
 
-    // Obsługa kliknięć w navbar - zatrzymaj animację
     const handleClick = (e) => {
-      // Sprawdź czy kliknięto w navbar lub link
       const clickedElement = e.target.closest('a[href^="#"], header, nav');
       if (clickedElement) {
         stopAnimation();
