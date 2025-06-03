@@ -1,8 +1,25 @@
-const Button = ({ text, className, type, isSuccess, isLoading, disabled }) => {
+const Button = ({ text, className, type, isSuccess, isLoading, disabled, onClick }) => {
+  const handleClick = () => {
+    if (text === "Download CV") {
+      // Pobierz CV
+      const link = document.createElement('a');
+      link.href = './Dawid_Zajac_CV.txt';
+      link.download = 'Dawid_Zajac_CV.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+    
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
     <button
       type={type}
-      className={`${className ?? ""} relative z-20 ${
+      onClick={handleClick}
+      className={`${className ?? ""} relative z-20 rounded-lg overflow-hidden ${
         isLoading || disabled || isSuccess ? "opacity-80" : "cursor-pointer"
       }`}
       disabled={isLoading || disabled || isSuccess}
@@ -13,7 +30,7 @@ const Button = ({ text, className, type, isSuccess, isLoading, disabled }) => {
         w-[120%] h-[120%] md:group-hover:size-10 group-hover:size-8 md:group-hover:right-10 group-hover:right-6
         rounded-full ${
           isSuccess ? "bg-green-300" : "bg-white-50/80"
-        } transition-all duration-500`}
+        } transition-all duration-500 will-change-transform`}
         />
         <p className="uppercase md:text-md text-black transition-all duration-500 group-hover:text-white-50 md:group-hover:-translate-x-5 xl:translate-x-0 -translate-x-5 z-10">
           {text}

@@ -10,7 +10,10 @@ const Hero = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 1000], [0, 300]);
   const [showScrollDown, setShowScrollDown] = useState(true);
-
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
   useEffect(() => {
     const handleScroll = () => {
       const shouldShow = window.scrollY < 100;
@@ -100,7 +103,8 @@ const Hero = () => {
               <SocialIcons iconSize="4" />
             </div>
           </div>
-        </header>        <motion.div
+        </header>{" "}
+        <motion.div
           className="absolute top-[50%] md:top-[50%] left-30 md:left-[50%] translate-y-[-50%] opacity-50 max-w-xs md:max-w-xl"
           style={{ y }}
         >
@@ -112,7 +116,7 @@ const Hero = () => {
       </div>
       <div
         onClick={handleScrollToDiscover}
-        className={`absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer transition-opacity duration-300 ${
+        className={`absolute bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer transition-opacity duration-300 ${
           showScrollDown ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >

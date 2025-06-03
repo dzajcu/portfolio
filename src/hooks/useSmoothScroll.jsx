@@ -17,7 +17,6 @@ export const useSmoothScroll = (options = {}) => {
       "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
     if (isMobile || isTouchDevice) {
-      console.log("Mobile device detected - skipping smooth scroll");
       return;
     }
 
@@ -26,7 +25,6 @@ export const useSmoothScroll = (options = {}) => {
     const isLowPerformance = hardwareConcurrency < 4 || memory < 4;
 
     if (isLowPerformance) {
-      console.log("Low performance device - skipping smooth scroll");
       return;
     }
 
