@@ -24,7 +24,7 @@ const TimelineDiv = ({ wrapperRef }) => {
   });
 
   return (
-    <motion.div
+    <div
       ref={ref}
       className="timeline absolute z-30 w-14 md:w-28 bg-black-100 top-0"
       style={{ height, top }}
@@ -115,11 +115,11 @@ const Experience = () => {
                         }
                       }}
                     >
-                      <TimelineDiv
+                      {/* <TimelineDiv
                         wrapperRef={
                           timelineWrapperRefs.current[expCards.indexOf(card)]
                         }
-                      />
+                      /> */}
                       <div className="gradient-line w-1 h-full" />
                     </div>
                     <div className="flex xl:gap-20 md:gap-10 gap-5 relative z-20">

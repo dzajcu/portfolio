@@ -1,9 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 const ParallaxBackground = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
+  const isMobile = useMemo(() => {
+    return (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      ) ||
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0
+    );
+  }, []);
+
   useEffect(() => {
+    if (isMobile) return;
+
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
     };
@@ -13,7 +25,11 @@ const ParallaxBackground = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none">
@@ -125,7 +141,6 @@ const ParallaxBackground = () => {
           }}
         />
       </div>
-      {/* Dodatkowe elementy wielokątne, aby wypełnić całą długość strony */}
       <div
         className="absolute inset-x-0 transform-gpu overflow-hidden blur-[30px]"
         aria-hidden="true"
