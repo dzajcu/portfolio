@@ -16,6 +16,7 @@ const ProjectCard = ({
   const container = useRef(null);
   const videoRef = useRef(null);
   const isInView = useInView(container, { margin: "-10% 0px -10% 0px" });
+  const isVideo = src && src.toLowerCase().endsWith(".mp4");
 
   useScroll({
     target: container,
@@ -25,14 +26,14 @@ const ProjectCard = ({
   const scale = useTransform(progress, range, [1, targetScale]);
 
   useEffect(() => {
-    if (videoRef.current) {
+    if (videoRef.current && isVideo) {
       if (isInView) {
         videoRef.current.play();
       } else {
         videoRef.current.pause();
       }
     }
-  }, [isInView]);
+  }, [isInView, isVideo]);
 
   return (
     <div
@@ -46,27 +47,44 @@ const ProjectCard = ({
         }}
         className="relative flex flex-col h-auto w-fit origin-top"
       >
+        {" "}
         <div className="relative w-[90vw] sm:w-[95%] md:w-[700px] lg:w-[800px] h-[200px] sm:h-[250px] md:h-[375px] overflow-hidden rounded-lg group border-[0.5px] border-white-50/30">
-          <video
-            ref={videoRef}
-            className="w-full h-full object-cover will-change-transform"
-            loop
-            muted
-            playsInline
-            autoPlay
-          >
-            <source src={src} type="video/mp4" />
-          </video>
+          {isVideo ? (
+            <video
+              ref={videoRef}
+              className="w-full h-full object-cover will-change-transform"
+              loop
+              muted
+              playsInline
+              autoPlay
+            >
+              <source
+                src={src}
+                type="video/mp4"
+              />
+            </video>
+          ) : (
+            <img
+              src={src}
+              alt={title}
+              className="w-full h-full object-cover will-change-transform"
+            />
+          )}
           <div
             className="absolute inset-0 bg-black/70 md:opacity-0 opacity-80 transition-all duration-300 
             md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 will-change-transform"
           >
+            {!isVideo && (
+              <div className="absolute right-4 top-4 md:top-6 md:right-6 bg-blue-500/90 text-white px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold z-10">
+                Work in Progress
+              </div>
+            )}
             <div className="flex flex-col h-full p-3 sm:p-4 md:p-6 justify-between">
               <div className="md:translate-y-4 transition-transform duration-300 md:group-hover:translate-y-0">
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 text-white">
                   {title}
                 </h2>
-                <p className="text-white-100 text-sm sm:text-base md:text-lg">
+                <p className="text-white-100 text-xs sm:text-base md:text-lg">
                   {description}
                 </p>
               </div>
@@ -87,7 +105,7 @@ const ProjectCard = ({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white opacity-75 hover:opacity-100 transition w-fit"
+                  className="flex items-center gap-2 text-white opacity-75 hover:opacity-100 transition w-fit text-sm"
                 >
                   <svg
                     className="w-5 h-5"

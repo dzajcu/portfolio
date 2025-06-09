@@ -46,7 +46,8 @@ const Experience = () => {
         "Developed teamwork and communication skills through group projects.",
       ],
     },
-    {      review:
+    {
+      review:
         "This program is helping me gain deeper insight into AI, cloud solutions, and research-oriented problem solving.",
       logoPath: "./student.png",
       title: "M.Sc. in Automation and Information Systems",
@@ -57,7 +58,8 @@ const Experience = () => {
         "Exploring advanced engineering topics.",
       ],
     },
-    {      work: true,
+    {
+      work: true,
       review:
         "This role has deepened my ability to troubleshoot under pressure and maintain critical systems with reliability and precision.",
       logoPath: "./admin.png",
@@ -84,7 +86,10 @@ const Experience = () => {
   );
 
   return (
-    <section id="experience" className="flex-center md:mt-40 mt-20 xl:px-0">
+    <section
+      id="experience"
+      className="flex-center md:mt-40 mt-20 xl:px-0"
+    >
       <div className="w-full h-full md:px-20 px-5">
         <TitleHeader
           title="Education & Work Experience."
@@ -92,9 +97,13 @@ const Experience = () => {
         />
         <div className="mt-32 relative">
           <div className="relative z-50 xl:space-y-32 space-y-10">
-            {expCards.map((card) => (
-              <div
+            {expCards.map((card, index) => (
+              <motion.div
                 key={card.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+                viewport={{ once: true }}
                 className="flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between"
               >
                 <div className="xl:w-2/6 z-40">
@@ -120,13 +129,33 @@ const Experience = () => {
                           timelineWrapperRefs.current[expCards.indexOf(card)]
                         }
                       /> */}
-                      <div className="gradient-line w-1 h-full" />
+                      <motion.div 
+                        initial={{ height: 0 }}
+                        whileInView={{ height: "100%" }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        viewport={{ once: true }}
+                        className="gradient-line w-1 h-full" 
+                      />
                     </div>
                     <div className="flex xl:gap-20 md:gap-10 gap-5 relative z-20">
-                      <div className="md:size-20 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 bg-white-50/10">
-                        <img src={card.logoPath} alt="logo" />
-                      </div>
-                      <div>
+                      <motion.div 
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        viewport={{ once: true }}
+                        className="md:size-20 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 bg-white-50/10"
+                      >
+                        <img
+                          src={card.logoPath}
+                          alt="logo"
+                        />
+                      </motion.div>
+                      <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        viewport={{ once: true }}
+                      >
                         <h1 className="font-semibold text-3xl">{card.title}</h1>
                         <p className="my-5 text-white-50 text-sm">
                           {card.date}
@@ -137,17 +166,24 @@ const Experience = () => {
                         <ul className="list-disc ms-5 mt-5 flex flex-col gap-4 text-white-50">
                           {card.responsibilities.map(
                             (responsibility, index) => (
-                              <li key={index} className="text-sm md:text-base">
+                              <motion.li
+                                key={index}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="text-sm md:text-base"
+                              >
                                 {responsibility}
-                              </li>
+                              </motion.li>
                             )
                           )}
                         </ul>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
