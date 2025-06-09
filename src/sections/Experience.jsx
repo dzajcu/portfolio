@@ -129,16 +129,16 @@ const Experience = () => {
                           timelineWrapperRefs.current[expCards.indexOf(card)]
                         }
                       /> */}
-                      <motion.div 
+                      <motion.div
                         initial={{ height: 0 }}
                         whileInView={{ height: "100%" }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                         viewport={{ once: true }}
-                        className="gradient-line w-1 h-full" 
+                        className="gradient-line w-1 h-full"
                       />
                     </div>
                     <div className="flex xl:gap-20 md:gap-10 gap-5 relative z-20">
-                      <motion.div 
+                      <motion.div
                         initial={{ scale: 0.8, opacity: 0 }}
                         whileInView={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
@@ -170,7 +170,10 @@ const Experience = () => {
                                 key={index}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                                transition={{
+                                  duration: 0.4,
+                                  delay: 0.5 + index * 0.1,
+                                }}
                                 viewport={{ once: true }}
                                 className="text-sm md:text-base"
                               >
