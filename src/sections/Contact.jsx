@@ -3,7 +3,6 @@ import TitleHeader from "../components/TitleHeader";
 import Button from "../components/Button";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import { EMAILJS_CONFIG } from "../config/emailConfig";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -23,7 +22,6 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
   const handleSubmit = async (e) => {
-    console.log("form", form);
     e.preventDefault();
     setLoading(true);
 
@@ -31,13 +29,11 @@ const Contact = () => {
       setButtonState({
         text: "sending...",
         isSuccess: false,
-      });
-
-      await emailjs.sendForm(
-        EMAILJS_CONFIG.serviceId,
-        EMAILJS_CONFIG.templateId,
+      });      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        EMAILJS_CONFIG.publicKey
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       setForm({

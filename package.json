@@ -1,8 +1,10 @@
 {
+  "homepage": "https://dzajcu.github.io/portfolio",
   "name": "portfolio",
   "private": true,
   "version": "0.0.0",
-  "type": "module",  "scripts": {
+  "type": "module",
+  "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",

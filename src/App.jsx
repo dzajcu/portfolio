@@ -4,7 +4,7 @@ import Navbar from "./sections/Navbar";
 import About from "./sections/About";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
-import Contant from "./sections/Contant";
+import Contact from "./sections/Contact";
 import Skills from "./sections/Skills";
 import Footer from "./sections/Footer";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
@@ -24,7 +24,7 @@ const App = () => {
         <Skills />
         <Projects />
         <Experience />
-        <Contant />
+        <Contact />
         <Footer />
       </div>
     </>
